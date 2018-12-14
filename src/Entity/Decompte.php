@@ -50,7 +50,7 @@ class Decompte
     private $createdAt;
 
     /**
-     * @ORM\Column(type="date", options={"comment":"colonne d'audit"})
+     * @ORM\Column(type="date", nullable=true, options={"comment":"colonne d'audit"})
      */
     private $updatedAt;
 
