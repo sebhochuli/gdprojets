@@ -17,8 +17,79 @@ class Projet
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="projets")
+     * @ORM\JoinColumn(name="client", referencedColumnName="id", nullable=false)
+     */
+    private $client;
+
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $updatedAt;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getClient(): Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(Client $client): Projet
+    {
+        $this->client = $client;
+        return $this;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): Projet
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAt(): Projet
+    {
+        $this->createdAt = new \DateTime();
+        return $this;
+    }
+
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAt(): Projet
+    {
+        $this->updatedAt = new \DateTime();
+        return $this;
     }
 }
