@@ -43,6 +43,21 @@ class Configuration
     private $localite;
 
     /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $telephone;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="integer", options={"unsigned"=true})
+     */
+    private $tarifHoraire;
+
+    /**
      * @ORM\Column(type="date")
      */
     private $createdAt;
@@ -109,6 +124,39 @@ class Configuration
     public function setLocalite(string $localite): Configuration
     {
         $this->localite = $localite;
+        return $this;
+    }
+
+    public function getTelephone(): string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(string $telephone): Configuration
+    {
+        $this->telephone = $telephone;
+        return $this;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): Configuration
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    public function getTarifHoraire(): int
+    {
+        return $this->tarifHoraire;
+    }
+
+    public function setTarifHoraire(int $tarifHoraire): Configuration
+    {
+        $this->tarifHoraire = $tarifHoraire;
         return $this;
     }
 
