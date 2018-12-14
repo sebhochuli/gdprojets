@@ -45,12 +45,12 @@ class Decompte
     private $heuresFacturees;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", options={"comment":"colonne d'audit"})
      */
     private $createdAt;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", options={"comment":"colonne d'audit"})
      */
     private $updatedAt;
 
